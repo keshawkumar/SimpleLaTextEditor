@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx" height="750">
+	<s:layout>
+		<s:VerticalLayout horizontalAlign="center"/>
+	</s:layout>
+	<fx:Style source="StyleSheet/stylesheet.css"/>
+	
+	<fx:Script>
+		<![CDATA[
+			import flash.net.navigateToURL;
+			protected function downloadImageButton_clickHandler(event:MouseEvent):void
+			{
+				var urlStr:String = "http://latex.codecogs.com/gif.download?"+encodeURIComponent(LaTextEditorTextArea.text);
+				var newURLRequest:URLRequest = new URLRequest(urlStr);
+				navigateToURL(newURLRequest,"_blank");
+			}
+			private function insertTextInTextArea(str:String):void
+			{
+				LaTextEditorTextArea.insertText(str);
+			}
+
+			protected function showImageButton_clickHandler(event:MouseEvent):void
+			{
+				// TODO Auto-generated method stub
+				var urlStr:String = "http://latex.codecogs.com/gif.download?"+encodeURIComponent(LaTextEditorTextArea.text);
+				LaTextImage.source = urlStr;
+			}
+
+		]]>
+	</fx:Script>
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Panel title="Simple LaTeXEditor">
+		<s:layout>
+			<s:VerticalLayout gap="10" paddingLeft="10" paddingRight="10"/>
+		</s:layout>
+		<s:controlBarContent>
+			<s:Button label="α" height="100%" click="insertTextInTextArea('\\alpha')" />
+			<s:Button label="β" height="100%" click="insertTextInTextArea('\\beta')" />
+			<s:Button label="γ" height="100%" click="insertTextInTextArea('\\gamma')" />
+			<s:Button label="δ" height="100%" click="insertTextInTextArea('\\delta')" />
+			<s:Button label="ε" height="100%" click="insertTextInTextArea('\\varepsilon')" />
+			<s:Button label="Show Image" height="100%" id="showImageButton" click="showImageButton_clickHandler(event)" />
+			<s:Button label="Download Image" height="100%" id="downloadImageButton" click="downloadImageButton_clickHandler(event)" />
+		</s:controlBarContent> 		
+		<s:RichEditableText id="LaTextEditorTextArea" width="100%" height="200" text="\alpha\beta\gamma\delta\varepsilon"/>
+		<mx:HRule height="1" width="100%" />
+		<mx:Image id="LaTextImage" minHeight="100" />
+	</s:Panel>    
+</s:Application>

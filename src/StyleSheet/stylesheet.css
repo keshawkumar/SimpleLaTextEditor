@@ -1,0 +1,21 @@
+/* CSS file */
+@namespace s "library://ns.adobe.com/flex/spark";
+@namespace mx "library://ns.adobe.com/flex/mx";
+
+s|Button
+{
+	chromeColor: #3B73B9;
+	color: #FFFFFF;
+	fontFamily: Verdana;
+	fontSize: 12;
+	fontWeight: bold;
+}
+s|RichEditableText
+{
+	fontFamily: Verdana;
+	fontSize: 20;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+	
