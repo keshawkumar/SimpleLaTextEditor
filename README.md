@@ -31,4 +31,3 @@ In order to be considered for the Flex position we ask you to complete the follo
 ## Once Complete
 1. Commit and Push your code to your new repository
 2. Send us a pull request, we will review your code and get back to you
-
